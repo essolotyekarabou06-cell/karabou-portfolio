@@ -357,6 +357,44 @@
   .tl-item li{margin-bottom:5px;}
 
   /* ---------- APPROACH ---------- */
+  /* ---------- ALBOS ---------- */
+  .albos-lede{
+    font-family:'Bricolage Grotesque'; font-weight:600;
+    font-size:clamp(1.15rem,2vw,1.4rem); line-height:1.4; max-width:56ch;
+    margin-bottom:44px; padding-bottom:32px; border-bottom:1px solid var(--line);
+  }
+  .albos-block{margin-bottom:40px;}
+  .albos-block:last-child{margin-bottom:0;}
+  .albos-block h3{font-size:1.2rem; margin-bottom:18px;}
+  .albos-sub{color:var(--slate); font-size:0.95rem; margin-bottom:20px;}
+  .albos-stats{display:grid; grid-template-columns:repeat(3,1fr); gap:20px; margin-bottom:22px;}
+  .albos-stat{
+    background:var(--white); border:1px solid var(--line); border-radius:18px; padding:24px;
+  }
+  .albos-stat b{
+    display:block; font-family:'Bricolage Grotesque'; font-weight:700; font-size:1.6rem;
+    color:var(--coral); margin-bottom:10px;
+  }
+  .albos-stat p{font-size:0.9rem; color:var(--slate); line-height:1.5;}
+  .albos-conseq{
+    font-size:0.96rem; color:var(--ink); background:var(--white); border-left:3px solid var(--indigo);
+    padding:16px 22px; border-radius:0 14px 14px 0;
+  }
+  .albos-features{display:grid; grid-template-columns:repeat(4,1fr); gap:12px;}
+  .albos-feature{
+    background:var(--white); border:1px solid var(--line); border-radius:14px;
+    padding:16px 18px; font-size:0.9rem; font-weight:600; text-align:center;
+    transition:border-color .2s ease, transform .2s ease;
+  }
+  .albos-feature:hover{border-color:var(--indigo); transform:translateY(-2px);}
+  @media (max-width:900px){
+    .albos-stats{grid-template-columns:1fr;}
+    .albos-features{grid-template-columns:repeat(2,1fr);}
+  }
+  @media (max-width:560px){
+    .albos-features{grid-template-columns:1fr;}
+  }
+
   .approach{
     display:grid; grid-template-columns:1fr 1fr; gap:56px; align-items:center;
   }
@@ -523,6 +561,7 @@
       <li><a href="#about">À propos</a></li>
       <li><a href="#skills">Compétences</a></li>
       <li><a href="#experience">Parcours</a></li>
+      <li><a href="#albos">ALBOS</a></li>
       <li><a href="#work">Réalisations</a></li>
       <li><a href="#tarifs">Tarifs</a></li>
       <li><a href="#formations">Formations</a></li>
@@ -710,6 +749,55 @@
           <div class="tl-date">2025 – 2026</div>
           <h3>Certificat en création de contenus numériques · Formation en commerce digital, IA &amp; entrepreneuriat</h3>
           <div class="tl-org">Woe Academy · Force-N</div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ALBOS -->
+  <section class="alt" id="albos">
+    <div class="wrap">
+      <div class="section-head">
+        <div>
+          <div class="kicker">Projet phare — fondateur</div>
+          <h2>ALBOS, digitaliser le secteur informel grâce à l'IA</h2>
+        </div>
+        <p>African Local Brands Operating System : l'infrastructure numérique des entreprises informelles africaines.</p>
+      </div>
+
+      <p class="albos-lede">Je suis fondateur du projet ALBOS, une plateforme qui permet aux entreprises du secteur informel de se digitaliser grâce à l'intelligence artificielle.</p>
+
+      <div class="albos-block">
+        <h3>Le problème</h3>
+        <div class="albos-stats">
+          <div class="albos-stat">
+            <b>+90%</b>
+            <p>des entreprises africaines relèvent du secteur informel : pas d'identité de marché, pas de présence digitale, pas de données exploitables.</p>
+          </div>
+          <div class="albos-stat">
+            <b>CNSS</b>
+            <p>L'absence de recensement fiable du secteur informel limite le recouvrement des cotisations et l'élargissement de l'assiette contributive.</p>
+          </div>
+          <div class="albos-stat">
+            <b>Banque mondiale</b>
+            <p>Ce déficit d'identité empêche une cartographie fiable et freine les politiques d'inclusion financière ciblant le secteur informel.</p>
+          </div>
+        </div>
+        <p class="albos-conseq">Ce déficit d'identité prive le secteur informel d'accès aux partenariats, aux investisseurs et aux prêts, et le maintient hors des radars institutionnels.</p>
+      </div>
+
+      <div class="albos-block">
+        <h3>La solution ALBOS</h3>
+        <p class="albos-sub">Une présence digitale complète pour chaque entreprise informelle :</p>
+        <div class="albos-features">
+          <div class="albos-feature">Profil professionnel</div>
+          <div class="albos-feature">Brand-ID</div>
+          <div class="albos-feature">Fiche digitale</div>
+          <div class="albos-feature">Mini-site</div>
+          <div class="albos-feature">Code QR unique</div>
+          <div class="albos-feature">Espace de publication des produits</div>
+          <div class="albos-feature">Score de confiance</div>
+          <div class="albos-feature">Annuaire de géolocalisation</div>
         </div>
       </div>
     </div>
@@ -1038,7 +1126,7 @@
 
 <script>
   // Reveal-on-scroll (robust rect-based check, avoids IntersectionObserver edge cases)
-  const revealEls = Array.from(document.querySelectorAll('.skill-card, .tl-item, .work-card, .about-grid, .approach, .testi, .missions, .price-card, .fm-card'));
+  const revealEls = Array.from(document.querySelectorAll('.skill-card, .tl-item, .work-card, .about-grid, .approach, .testi, .missions, .price-card, .fm-card, .albos-block, .albos-lede'));
   revealEls.forEach(el => el.classList.add('reveal'));
 
   function checkReveal(){
