@@ -492,56 +492,12 @@
     .testi-grid{grid-template-columns:1fr;}
   }
 
-  /* ---------- AVIS FORM ---------- */
-  .review-wrap{
-    display:grid; grid-template-columns:0.9fr 1.1fr; gap:48px; align-items:start;
-    max-width:960px; margin:0 auto;
+  /* ---------- AVIS / COMMENTBOX ---------- */
+  .comment-panel{
+    max-width:760px; margin:0 auto; background:var(--white); border:1px solid var(--line);
+    border-radius:20px; padding:36px;
   }
-  .review-intro h3{font-size:1.3rem; margin-bottom:14px;}
-  .review-intro p{color:var(--slate); font-size:0.96rem; margin-bottom:10px;}
-  .review-note{
-    margin-top:22px; padding:16px 20px; border-radius:14px; background:var(--bone);
-    font-size:0.86rem; color:var(--slate);
-  }
-  .review-form{
-    background:var(--white); border:1px solid var(--line); border-radius:20px; padding:30px;
-  }
-  .review-form label{
-    display:block; font-size:0.86rem; font-weight:600; color:var(--ink); margin-bottom:7px; margin-top:18px;
-  }
-  .review-form label:first-child{margin-top:0;}
-  .review-form input[type="text"], .review-form textarea{
-    width:100%; border:1px solid var(--line); border-radius:12px; padding:12px 14px;
-    font-family:'Inter'; font-size:0.94rem; color:var(--ink); background:var(--bone);
-    resize:vertical;
-  }
-  .review-form input[type="text"]:focus, .review-form textarea:focus{
-    outline:2px solid var(--indigo); outline-offset:1px; background:var(--white);
-  }
-  .stars{display:flex; flex-direction:row-reverse; justify-content:flex-end; gap:4px;}
-  .stars input{position:absolute; opacity:0; width:0; height:0;}
-  .stars label{
-    font-size:1.7rem; color:var(--line); cursor:pointer; transition:color .15s ease; line-height:1;
-  }
-  .stars input:checked ~ label,
-  .stars label:hover,
-  .stars label:hover ~ label{ color: var(--coral); }
-  .review-form button{
-    margin-top:22px; width:100%; border:none; cursor:pointer;
-    background:var(--indigo); color:var(--white); font-family:'Inter'; font-weight:600;
-    font-size:0.96rem; padding:14px; border-radius:100px; transition:background .18s ease, transform .18s ease;
-  }
-  .review-form button:hover{background:var(--indigo-deep); transform:translateY(-2px);}
-  .review-form .form-msg{margin-top:16px; font-size:0.9rem;}
-  .review-form .form-msg.ok{color:#1a7a3c;}
-  .review-form .form-msg.err{color:var(--coral);}
-  .review-thanks{
-    text-align:center; padding:40px 20px;
-  }
-  .review-thanks .check{font-size:2.4rem; margin-bottom:14px;}
-  .review-thanks h4{font-size:1.15rem; margin-bottom:8px;}
-  .review-thanks p{color:var(--slate); font-size:0.94rem;}
-  @media (max-width:800px){.review-wrap{grid-template-columns:1fr;}}
+  @media (max-width:600px){.comment-panel{padding:22px;}}
 
   /* ---------- CONTACT ---------- */
   .contact{
@@ -1177,45 +1133,20 @@
       <div class="section-head">
         <div>
           <div class="kicker">Avis</div>
-          <h2>Laissez un avis</h2>
+          <h2>Avis &amp; commentaires</h2>
         </div>
+        <p>Visible par tous les visiteurs. Vous avez déjà travaillé avec moi, suivi une formation, ou consulté ce portfolio ? Laissez un mot, sans créer de compte.</p>
       </div>
-      <div class="review-wrap">
-        <div class="review-intro">
-          <h3>Votre avis compte</h3>
-          <p>Vous avez déjà travaillé avec moi, suivi une formation, ou consulté ce portfolio ? Dites-moi ce que vous en pensez.</p>
-          <p>Chaque avis m'arrive directement par e-mail. Les meilleurs sont ensuite ajoutés à cette page, avec votre accord.</p>
-          <div class="review-note">Aucun compte requis, ça prend moins d'une minute.</div>
-        </div>
-
-        <div class="review-form" id="reviewFormWrap">
-          <form id="reviewForm" action="https://formsubmit.co/ajax/essolotyekarabou06@gmail.com" method="POST">
-            <input type="hidden" name="_subject" value="Nouvel avis reçu sur le portfolio">
-            <input type="hidden" name="_captcha" value="false">
-            <input type="hidden" name="_template" value="table">
-
-            <label for="rv-name">Votre nom</label>
-            <input type="text" id="rv-name" name="Nom" required placeholder="Votre nom">
-
-            <label for="rv-org">Structure / entreprise (optionnel)</label>
-            <input type="text" id="rv-org" name="Structure" placeholder="Ex : Cabinet ACTe">
-
-            <label>Note</label>
-            <div class="stars">
-              <input type="radio" id="star5" name="Note" value="5"><label for="star5">★</label>
-              <input type="radio" id="star4" name="Note" value="4"><label for="star4">★</label>
-              <input type="radio" id="star3" name="Note" value="3" checked><label for="star3">★</label>
-              <input type="radio" id="star2" name="Note" value="2"><label for="star2">★</label>
-              <input type="radio" id="star1" name="Note" value="1"><label for="star1">★</label>
-            </div>
-
-            <label for="rv-msg">Votre avis</label>
-            <textarea id="rv-msg" name="Avis" rows="4" required placeholder="Partagez votre expérience..."></textarea>
-
-            <button type="submit">Envoyer mon avis</button>
-            <div class="form-msg" id="reviewMsg"></div>
-          </form>
-        </div>
+      <div class="comment-panel">
+        <div class="commentbox"></div>
+        <script src="https://unpkg.com/commentbox.io/dist/commentBox.min.js"></script>
+        <script>
+          commentBox('5678575835414528-proj', {
+            backgroundColor: 'transparent',
+            textColor: '#12121f',
+            subtextColor: '#6b697c'
+          });
+        </script>
       </div>
     </div>
   </section>
@@ -1252,7 +1183,7 @@
 
 <script>
   // Reveal-on-scroll (robust rect-based check, avoids IntersectionObserver edge cases)
-  const revealEls = Array.from(document.querySelectorAll('.skill-card, .tl-item, .work-card, .about-grid, .approach, .testi, .missions, .price-card, .fm-card, .albos-block, .albos-lede, .review-form, .review-intro'));
+  const revealEls = Array.from(document.querySelectorAll('.skill-card, .tl-item, .work-card, .about-grid, .approach, .testi, .missions, .price-card, .fm-card, .albos-block, .albos-lede, .comment-panel'));
   revealEls.forEach(el => el.classList.add('reveal'));
 
   function checkReveal(){
@@ -1293,34 +1224,6 @@
       navToggle.setAttribute('aria-expanded','false');
     });
   });
-
-  // Avis form (FormSubmit AJAX, no page reload)
-  const reviewForm = document.getElementById('reviewForm');
-  if(reviewForm){
-    reviewForm.addEventListener('submit', function(e){
-      e.preventDefault();
-      const btn = reviewForm.querySelector('button[type="submit"]');
-      const msg = document.getElementById('reviewMsg');
-      btn.disabled = true; btn.textContent = 'Envoi en cours...';
-      msg.textContent = ''; msg.className = 'form-msg';
-      fetch(reviewForm.action, {
-        method: 'POST',
-        headers: {'Accept':'application/json'},
-        body: new FormData(reviewForm)
-      }).then(res => {
-        if(res.ok){
-          document.getElementById('reviewFormWrap').innerHTML =
-            '<div class="review-thanks"><div class="check">✅</div><h4>Merci pour votre avis !</h4><p>Il vient de m\'être envoyé. Je reviendrai peut-être vers vous pour l\'ajouter à cette page.</p></div>';
-        } else {
-          throw new Error('send failed');
-        }
-      }).catch(() => {
-        btn.disabled = false; btn.textContent = 'Envoyer mon avis';
-        msg.textContent = "L'envoi a échoué. Vous pouvez aussi écrire directement à essolotyekarabou06@gmail.com.";
-        msg.className = 'form-msg err';
-      });
-    });
-  }
 
   // Scroll progress + header shadow
   const scrollBar = document.getElementById('scrollBar');
